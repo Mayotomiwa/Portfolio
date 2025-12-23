@@ -1,459 +1,1061 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oluseyi Mayotomiwa - Full-Stack Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <!-- Google Fonts: Montserrat -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Montserrat", sans-serif;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+      .float-icon {
+        animation: float 3s ease-in-out infinite;
+      }
+      .float-icon:nth-child(2) {
+        animation-delay: 0.5s;
+      }
+      .float-icon:nth-child(3) {
+        animation-delay: 1s;
+      }
+      .float-icon:nth-child(4) {
+        animation-delay: 1.5s;
+      }
+      .float-icon:nth-child(5) {
+        animation-delay: 2s;
+      }
+      .float-icon:nth-child(6) {
+        animation-delay: 2.5s;
+      }
 
-  <title>Oluseyi Mayotomiwa Immanuel</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+      .typing-cursor::after {
+        content: "|";
+        animation: blink 1s infinite;
+      }
 
-  <!-- Favicons -->
-  <link href="assets/img/Favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+      @keyframes blink {
+        0%,
+        50% {
+          opacity: 1;
+        }
+        51%,
+        100% {
+          opacity: 0;
+        }
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+      (function () {
+        emailjs.init("8K-CvVZqlamXvUUQ0");
+      })();
 
-  <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i|Playfair+Display:400,400i,500,500i,600,600i,700,700i,900,900i"
-    rel="stylesheet">
+      document
+        .getElementById("contact-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
-
-
-</head>
-
-<body>
-
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top ">
-    <div class="container d-flex align-items-center justify-content-between">
-
-      <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
-      <!-- <h1 class="logo"><a href="index.html">Folio</a></h1> -->
-
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link  scrollto" href="#portfolio">Portfolio</a></li>
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav>
-      <!-- .navbar -->
-
-    </div>
-  </header><!-- End Header -->
-
-  <!-- ======= Hero Section ======= -->
-  <div id="hero" class="home">
-
-    <div class="container">
-      <div class="hero-content">
-        <h1>I'm <span class="typed"
-            data-typed-items="Oluseyi Mayotomiwa Immanuel, Designer, Developer, Engineer."></span></h1>
-        <p>Designer, Developer, Freelancer</p>
-
-        <ul class="list-unstyled list-social">
-          <li><a href="https://github.com/Mayotomiwa"><i class="bi bi-github"></i></a></li>
-          <li><a href="https://linkedin.com/in/oluseyimayotomiwa"><i class="bi bi-linkedin"></i></a></li>
-        </ul>
+          emailjs.sendForm("service_41pvuz7", "template_tctnywb", this).then(
+            function () {
+              alert("Message sent successfully!");
+              document.getElementById("contact-form").reset();
+            },
+            function (error) {
+              alert("Failed to send message. Please try again.");
+              console.error("EmailJS error:", error);
+            }
+          );
+        });
+    </script>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm fixed w-full z-50" data-aos="fade-down">
+      <div class="max-w-7xl mx-auto px-6 py-4">
+        <div class="flex justify-between items-center">
+          <div class="flex items-center space-x-2">
+            <a href="#">
+              <span class="text-xl font-bold text-cyan-900"
+                >Oluseyi Mayotomiwa</span
+              >
+            </a>
+          </div>
+          <div class="flex space-x-8">
+            <a href="#projects" class="text-gray-600 hover:text-gray-900"
+              >Projects</a
+            >
+            <a href="#skills" class="text-gray-600 hover:text-gray-900"
+              >Skills</a
+            >
+            <a href="#contact" class="text-gray-600 hover:text-gray-900"
+              >Contact</a
+            >
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-  <!-- End Hero -->
-  <main id="main">
+    </nav>
 
-    <!-- ======= About Section ======= -->
-    <div id="about" class="paddsection">
-      <div class="container">
-        <div class="row justify-content-between">
+    <!-- Hero Section -->
+    <section class="max-w-7xl mx-auto px-6 py-20 pt-32">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div data-aos="fade-right">
+          <h1 class="text-5xl font-bold text-cyan-900 mb-4">
+            Oluseyi Mayotomiwa
+          </h1>
+          <p class="text-xl text-cyan-900 font-semibold mb-6">
+            <span id="typing-text" class="typing-cursor"></span>
+          </p>
+          <p class="text-gray-600 mb-8 leading-relaxed">
+            Crafting robust and elegant digital solutions across web and mobile
+            platforms. Passionate about scalable architectures, clean code, and
+            intuitive user experiences. Let's build something remarkable.
+          </p>
+          <div class="flex space-x-4">
+            <a
+              href="#projects"
+              class="bg-cyan-700 text-white px-6 py-3 rounded-lg hover:bg-cyan-900 transition inline-block"
+            >
+              View Projects
+            </a>
+            <a
+              href="./CVFile/MayoResume.pdf"
+              download="OluseyiMayotomiwa'sCV.pdf"
+              class="border-2 border-cyan-700 text-cyan-700 px-6 py-3 rounded-lg hover:border-cyan-900 hover:text-cyan-900 transition inline-block"
+            >
+              Download Resume
+            </a>
+          </div>
+        </div>
 
-          <div class="col-lg-4 ">
-            <div class="div-img-bg">
-              <div class="about-img">
-                <img src="assets/img/me.jpg" class="img-responsive" alt="me">
+        <div class="p-12 flex items-center justify-center" data-aos="fade-left">
+          <div
+            class="relative w-full max-w-md h-80 flex items-center justify-center"
+          >
+            <!-- Floating Icons -->
+            <div
+              class="float-icon absolute top-0 left-10 w-16 h-16 bg-blue-500 rounded-lg shadow-xl flex items-center justify-center"
+            >
+              <svg
+                class="w-10 h-10 text-white"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"
+                />
+              </svg>
+            </div>
+            <div
+              class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-gradient-to-tr from-cyan-500 to-blue-500 p-1"
+            >
+              <div
+                class="w-full h-full rounded-full bg-white p-1 shadow-2xl overflow-hidden"
+              >
+                <img
+                  src="/assets/img/avatar.png"
+                  alt="Oluseyi Mayotomiwa"
+                  class="w-full h-full object-cover rounded-full"
+                />
               </div>
+            </div>
+
+            <div
+              class="float-icon absolute top-20 right-10 w-20 h-20 bg-green-500 rounded-full shadow-xl flex items-center justify-center"
+            >
+              <svg
+                class="w-12 h-12 text-white"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                />
+              </svg>
+            </div>
+            <div
+              class="float-icon absolute bottom-20 left-0 w-14 h-14 bg-yellow-500 rounded-lg shadow-xl flex items-center justify-center transform z-50"
+            >
+              <svg
+                class="w-8 h-8 text-white"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-5 14H4v-4h11v4zm0-5H4V9h11v4zm5 5h-4V9h4v9z"
+                />
+              </svg>
+            </div>
+            <div
+              class="float-icon absolute bottom-5 right-20 w-16 h-16 bg-purple-500 rounded-full shadow-xl flex items-center justify-center"
+            >
+              <svg
+                class="w-10 h-10 text-white"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"
+                />
+              </svg>
+            </div>
+            <div
+              class="float-icon absolute top-1/2 right-3/4 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-cyan-700 rounded-2xl shadow-2xl flex items-center justify-center"
+            >
+              <svg
+                class="w-16 h-16 text-white"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"
+                />
+              </svg>
+            </div>
+            <div
+              class="float-icon absolute top-1/4 right-5 w-12 h-12 bg-red-500 rounded-lg shadow-xl flex items-center justify-center transform z-50"
+            >
+              <svg
+                class="w-8 h-8 text-white"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section id="projects" class="max-w-7xl mx-auto px-6 py-20">
+      <h2
+        class="text-4xl font-bold text-center text-cyan-900 mb-16"
+        data-aos="fade-up"
+      >
+        Featured Projects
+      </h2>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+        <!-- Project 1 -->
+        <div
+          class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <div class="h-56 overflow-hidden">
+            <img
+              src="/assets/img/billpadi.png"
+              alt="BillPadi"
+              class="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+            />
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-cyan-900 mb-3">BillPadi</h3>
+            <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+              A modern digital bill payment and utility platform enabling users
+              to buy airtime, pay bills, and manage subscriptions seamlessly.
+              Features include instant transaction feedback, wallet funding, and
+              secure payment gateways.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span
+                class="px-3 py-1 bg-cyan-100 text-cyan-700 text-xs rounded-full font-medium"
+                >Next.js</span
+              >
+              <span
+                class="px-3 py-1 bg-cyan-100 text-cyan-700 text-xs rounded-full font-medium"
+                >TailwindCSS</span
+              >
+              <span
+                class="px-3 py-1 bg-cyan-100 text-cyan-700 text-xs rounded-full font-medium"
+                >TypeScript</span
+              >
+            </div>
+            <a
+              href="https://billpadi.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-cyan-700 hover:text-cyan-900 font-medium text-sm flex items-center"
+            >
+              View Project →
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div
+          class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          <div class="h-56 overflow-hidden">
+            <img
+              src="/assets/img/mrandmrsreal.png"
+              alt="Mr and Mrs Real"
+              class="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+            />
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-3">
+              Mr and Mrs Real
+            </h3>
+            <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+              A dating app focused on authenticity and meaningful relationships.
+              Features include seamless onboarding, dynamic profiles,
+              personalized matching, and secure identity verification using AWS
+              Amplify and S3 integration. Gained over 7,000 users within two
+              months.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span
+                class="px-3 py-1 bg-cyan-100 text-cyan-700 text-xs rounded-full font-medium"
+                >React.js</span
+              >
+              <span
+                class="px-3 py-1 bg-cyan-100 text-cyan-700 text-xs rounded-full font-medium"
+                >Redux</span
+              >
+              <span
+                class="px-3 py-1 bg-cyan-100 text-cyan-700 text-xs rounded-full font-medium"
+                >Axios</span
+              >
+            </div>
+            <a
+              href="https://mrandmrsreal.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-cyan-700 hover:text-cyan-900 font-medium text-sm flex items-center"
+            >
+              View Project →
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div
+          class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        >
+          <div class="h-56 overflow-hidden">
+            <img
+              src="/assets/img/washtrack.webp"
+              alt="Wash Track"
+              class="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+            />
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Wash Track</h3>
+            <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+              A smart laundry management app that tracks washing orders, pickup
+              and delivery schedules, and payment statuses in real time.
+              Includes analytics dashboards for business owners and smooth
+              mobile experiences powered by React Native and Zustand.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span
+                class="px-3 py-1 bg-cyan-100 text-cyan-700 text-xs rounded-full font-medium"
+                >React Native</span
+              >
+              <span
+                class="px-3 py-1 bg-cyan-100 text-cyan-700 text-xs rounded-full font-medium"
+                >Expo</span
+              >
+              <span
+                class="px-3 py-1 bg-cyan-100 text-cyan-700 text-xs rounded-full font-medium"
+                >TanStack Query</span
+              >
+            </div>
+            <a
+              href="https://play.google.com/store/apps/details?id=com.techchampions.WashTrack&hl=en"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-cyan-700 hover:text-cyan-900 font-medium text-sm flex items-center"
+            >
+              View Project →
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div
+          class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <div class="h-56 overflow-hidden">
+            <img
+              src="/assets/img/cashkabash.png"
+              alt="Cashkabash"
+              class="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+            />
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Cashkabash</h3>
+            <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+              A feature-rich online marketplace enabling vendors and customers
+              to buy and sell products seamlessly. Includes vendor dashboards,
+              product analytics, secure payments, and customizable storefronts
+              built for scalability.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span
+                class="px-3 py-1 bg-cyan-100 text-cyan-700 text-xs rounded-full font-medium"
+                >Vue.js</span
+              >
+              <span
+                class="px-3 py-1 bg-cyan-100 text-cyan-700 text-xs rounded-full font-medium"
+                >Pinia</span
+              >
+              <span
+                class="px-3 py-1 bg-cyan-100 text-cyan-700 text-xs rounded-full font-medium"
+                >TailwindCSS</span
+              >
+            </div>
+            <a
+              href="https://cashkabash.ng/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-cyan-700 hover:text-cyan-900 font-medium text-sm flex items-center"
+            >
+              View Project →
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div
+          class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          <div class="h-56 overflow-hidden">
+            <img
+              src="/assets/img/bankit.png"
+              alt="Bankit"
+              class="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+            />
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Bankit</h3>
+            <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+              A next-generation microfinance banking platform designed for
+              speed, security, and accessibility. Features include instant
+              transfers, savings management, identity verification, and
+              real-time transaction updates via WebSockets.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span
+                class="px-3 py-1 bg-cyan-100 text-cyan-700 text-xs rounded-full font-medium"
+                >React Native</span
+              >
+              <span
+                class="px-3 py-1 bg-cyan-100 text-cyan-700 text-xs rounded-full font-medium"
+                >RTK Query</span
+              >
+              <span
+                class="px-3 py-1 bg-cyan-100 text-cyan-700 text-xs rounded-full font-medium"
+                >Expo</span
+              >
+              <span
+                class="px-3 py-1 bg-cyan-100 text-cyan-700 text-xs rounded-full font-medium"
+                >AWS systems</span
+              >
+            </div>
+            <a
+              href="https://play.google.com/store/search?q=Bankit&c=apps&hl=en"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-cyan-700 hover:text-cyan-900 font-medium text-sm flex items-center"
+            >
+              View Project →
+            </a>
+          </div>
+        </div>
+
+        <!-- Project 6 -->
+        <div
+          class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        >
+          <div class="h-56 overflow-hidden">
+            <img
+              src="/assets/img/legacy.png"
+              alt="Legacy Homes"
+              class="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+            />
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Legacy Homes</h3>
+            <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+              An apartment rental and property management platform connecting
+              tenants with verified landlords. Includes advanced property
+              search, secure bookings, rent tracking, and a responsive interface
+              for both web and mobile.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span
+                class="px-3 py-1 bg-cyan-100 text-cyan-700 text-xs rounded-full font-medium"
+                >Next.js</span
+              >
+              <span
+                class="px-3 py-1 bg-cyan-100 text-cyan-700 text-xs rounded-full font-medium"
+                >TypeScript</span
+              >
+              <span
+                class="px-3 py-1 bg-cyan-100 text-cyan-700 text-xs rounded-full font-medium"
+                >TailwindCSS</span
+              >
+            </div>
+            <a
+              href="#"
+              class="text-cyan-700 hover:text-cyan-900 font-medium text-sm flex items-center"
+            >
+              View Project →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills & Technologies -->
+    <section id="skills" class="max-w-7xl mx-auto px-6 py-20">
+      <h2
+        class="text-4xl font-bold text-center text-cyan-900 mb-16"
+        data-aos="fade-up"
+      >
+        Skills & Technologies
+      </h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
+        <!-- Frontend -->
+        <div data-aos="fade-up" data-aos-delay="100">
+          <h3 class="text-xl font-bold text-cyan-900 mb-6">Frontend</h3>
+          <div class="flex flex-wrap gap-2">
+            <span
+              class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm"
+              >React</span
+            >
+            <span
+              class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm"
+              >Vue.js</span
+            >
+            <span
+              class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm"
+              >Astro.js</span
+            >
+            <span
+              class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm"
+              >Next.js</span
+            >
+            <span
+              class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm"
+              >Tailwind CSS</span
+            >
+            <span
+              class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm"
+              >Shadcn/ui</span
+            >
+            <span
+              class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm"
+              >TypeScript</span
+            >
+            <span
+              class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm"
+              >JavaScript</span
+            >
+            <span
+              class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm"
+              >HTML5</span
+            >
+            <span
+              class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm"
+              >CSS3</span
+            >
+          </div>
+        </div>
+
+        <!-- Backend -->
+        <div data-aos="fade-up" data-aos-delay="200">
+          <h3 class="text-xl font-bold text-cyan-900 mb-6">Backend</h3>
+          <div class="flex flex-wrap gap-2">
+            <span
+              class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm"
+              >Node.js</span
+            >
+            <span
+              class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm"
+              >Express.js</span
+            >
+            <span
+              class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm"
+              >Nest.js</span
+            >
+            <span
+              class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm"
+              >Go</span
+            >
+            <span
+              class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm"
+              >Gin</span
+            >
+            <span
+              class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm"
+              >RESTful APIs</span
+            >
+            <span
+              class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm"
+              >GraphQL</span
+            >
+            <span
+              class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm"
+              >WebSockets</span
+            >
+          </div>
+        </div>
+
+        <!-- Databases -->
+        <div data-aos="fade-up" data-aos-delay="300">
+          <h3 class="text-xl font-bold text-cyan-900 mb-6">Databases</h3>
+          <div class="flex flex-wrap gap-2">
+            <span
+              class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm"
+              >PostgreSQL</span
+            >
+            <span
+              class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm"
+              >MongoDB</span
+            >
+            <span
+              class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm"
+              >MySQL</span
+            >
+            <span
+              class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm"
+              >Redis</span
+            >
+            <span
+              class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm"
+              >Supabase</span
+            >
+            <span
+              class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm"
+              >Firebase</span
+            >
+          </div>
+        </div>
+
+        <!-- Mobile -->
+        <div data-aos="fade-up" data-aos-delay="100">
+          <h3 class="text-xl font-bold text-cyan-900 mb-6">Mobile</h3>
+          <div class="flex flex-wrap gap-2">
+            <span
+              class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm"
+              >Flutter</span
+            >
+            <span
+              class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm"
+              >React Native</span
+            >
+            <span
+              class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm"
+              >Dart</span
+            >
+            <span
+              class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm"
+              >Expo</span
+            >
+          </div>
+        </div>
+
+        <!-- DevOps & Cloud -->
+        <div data-aos="fade-up" data-aos-delay="200">
+          <h3 class="text-xl font-bold text-cyan-900 mb-6">DevOps & Cloud</h3>
+          <div class="flex flex-wrap gap-2">
+            <span
+              class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm"
+              >Docker</span
+            >
+            <span
+              class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm"
+              >Kubernetes</span
+            >
+            <span
+              class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm"
+              >AWS</span
+            >
+            <span
+              class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm"
+              >Google Cloud</span
+            >
+            <span
+              class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm"
+              >Netlify</span
+            >
+            <span
+              class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm"
+              >Vercel</span
+            >
+            <span
+              class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm"
+              >CI/CD</span
+            >
+          </div>
+        </div>
+
+        <!-- Tools & Methodologies -->
+        <div data-aos="fade-up" data-aos-delay="300">
+          <h3 class="text-xl font-bold text-cyan-900 mb-6">
+            Tools & Methodologies
+          </h3>
+          <div class="flex flex-wrap gap-2">
+            <span
+              class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm"
+              >Git</span
+            >
+            <span
+              class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm"
+              >Jira</span
+            >
+            <span
+              class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm"
+              >Agile</span
+            >
+            <span
+              class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm"
+              >Scrum</span
+            >
+            <span
+              class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm"
+              >TDD</span
+            >
+            <span
+              class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm"
+              >UX/UI Design Principles</span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="max-w-7xl mx-auto px-6 py-20">
+      <h2
+        class="text-4xl font-bold text-center text-cyan-900 mb-16"
+        data-aos="fade-up"
+      >
+        Get In Touch
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-12 items-start">
+        <!-- Contact Info -->
+        <div data-aos="fade-right">
+          <h3 class="text-2xl font-semibold text-cyan-900 mb-4">
+            Let's work together
+          </h3>
+          <p class="text-gray-600 mb-6 leading-relaxed">
+            Have a project in mind, a question, or just want to say hello? Fill
+            out the form and I’ll get back to you as soon as possible.
+          </p>
+
+          <div class="space-y-4 text-gray-600">
+            <p><strong>Email:</strong> oluseyimayotomiwa@gmail.com</p>
+            <p><strong>Location:</strong> Lagos, Nigeria</p>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <form
+          id="contact-form"
+          class="bg-white rounded-xl shadow-md p-8 space-y-6"
+          data-aos="fade-left"
+        >
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">
+              Full Name
+            </label>
+            <input
+              type="text"
+              name="from_name"
+              required
+              class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-600"
+              placeholder="Your name"
+            />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">
+              Email Address
+            </label>
+            <input
+              type="email"
+              name="reply_to"
+              required
+              class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-600"
+              placeholder="you@example.com"
+            />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">
+              Subject
+            </label>
+            <input
+              type="text"
+              name="subject"
+              class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-600"
+              placeholder="Project inquiry"
+            />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">
+              Message
+            </label>
+            <textarea
+              rows="5"
+              name="message"
+              required
+              class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-600"
+              placeholder="Tell me about your project..."
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="w-full bg-cyan-700 text-white py-3 rounded-lg font-medium hover:bg-cyan-800 transition"
+          >
+            Send Message
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 mt-20">
+      <div class="max-w-7xl mx-auto px-6 py-12">
+        <div class="grid md:grid-cols-4 gap-8 mb-8">
+          <!-- Brand Info -->
+          <div>
+            <div class="flex items-center space-x-2 mb-4">
+              <span class="text-xl font-bold text-cyan-900"
+                >Oluseyi Mayotomiwa</span
+              >
+            </div>
+            <p class="text-gray-600 text-sm mb-4">
+              A full-stack developer's portfolio showcasing web and mobile
+              systems expertise.
+            </p>
+            <div class="flex space-x-3">
+              <!-- GitHub -->
+              <a
+                href="https://github.com/Mayotomiwa"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-cyan-700 hover:text-cyan-900 font-medium text-sm flex items-center"
+                class="text-gray-400 hover:text-cyan-900"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M12 0C5.37 0 0 5.37 0 12a12 12 0 008.21 11.39c.6.11.79-.26.79-.58v-2.23c-3.34.73-4.03-1.42-4.03-1.42-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.21.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49.99.11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.23-3.22-.12-.3-.53-1.52.12-3.17 0 0 1-.32 3.3 1.23a11.48 11.48 0 016.01 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.17.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.63-5.48 5.93.43.37.82 1.1.82 2.22v3.29c0 .32.19.69.8.58A12 12 0 0024 12c0-6.63-5.37-12-12-12z"
+                  />
+                </svg>
+              </a>
+
+              <!-- LinkedIn -->
+              <a
+                href="https://www.linkedin.com/in/oluseyimayotomiwa/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-cyan-700 hover:text-cyan-900 font-medium text-sm flex items-center"
+                class="text-gray-400 hover:text-cyan-900"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M22.23 0H1.77C.79 0 0 .78 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.27V1.73C24 .78 23.2 0 22.23 0zM7.06 20.45H3.56V9h3.5v11.45zM5.31 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zm15.14 13.02h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29z"
+                  />
+                </svg>
+              </a>
+
+              <!-- Instagram -->
+              <a
+                href="https://www.instagram.com/mayotomiwa_/?hl=en"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-cyan-700 hover:text-cyan-900 font-medium text-sm flex items-center"
+                class="text-gray-400 hover:text-cyan-900"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 1.5A4.25 4.25 0 003.5 7.75v8.5A4.25 4.25 0 007.75 20.5h8.5a4.25 4.25 0 004.25-4.25v-8.5A4.25 4.25 0 0016.25 3.5h-8.5zm8.75 2a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zM12 7a5 5 0 110 10 5 5 0 010-10zm0 1.5a3.5 3.5 0 100 7 3.5 3.5 0 000-7z"
+                  />
+                </svg>
+              </a>
             </div>
           </div>
 
-          <div class="col-lg-7">
-            <div class="about-descr">
-
-              <p class="p-heading">I am a UI/UX designer and a Front-end Developer based in Lagos Nigeria who loves
-                clean, simple & unique design. </p>
-              <p class="separator">
-                I'm Oluseyi Mayotomiwa Immanuel, a full-stack developer with a flair for building end-to-end web and
-                mobile solutions. Armed with a comprehensive skill set that includes HTML5, CSS, JavaScript, TypeScript,
-                React, React Native, Node.js, Express, MongoDB, Docker, and Kubernetes, I excel in creating applications
-                that are as robust under the hood as they are sleek on the surface. My commitment to professional growth
-                has me constantly exploring new technologies and methodologies, ensuring that I'm always at the
-                forefront of industry advancements. Whether it's piecing together the front-end puzzle or orchestrating
-                server-side operations, I approach every task with a balanced mix of enthusiasm and pragmatism. Eager to
-                push boundaries and embrace new challenges, I'm the team player you can count on to deliver both energy
-                and innovation.
-              </p>
-
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div><!-- End About Section -->
-
-    <!-- ======= Services Section ======= -->
-    <div id="services">
-      <div class="container">
-        <div class="section-title text-center">
-          <h3>Languages and Technologies</h3>
-        </div>
-        <div class="services-slider swiper" data-aos="fade-up" data-aos-delay="100">
-          <div class="swiper-wrapper">
-
-            <div class="swiper-slide">
-              <div class="services-block">
-                <i class="bx bxl-adobe"></i>
-                <span>Adobe XD</span>
-                <p class="separator">A prototyping and UI designing tool</p>
-              </div>
-            </div><!-- End Skill item -->
-
-            <div class="swiper-slide">
-              <div class="services-block">
-                <i class="bx bxl-bootstrap"></i>
-                <span>Bootstrap</span>
-                <p class="separator">A CSS Framework</p>
-              </div>
-            </div><!-- End Skill item -->
-
-            <div class="swiper-slide">
-              <div class="services-block">
-                <i class="bx bxl-css3"></i>
-                <span>CSS3</span>
-                <p class="separator">Styling language</p>
-              </div>
-            </div><!-- End Skill item -->
-
-            <div class="swiper-slide">
-              <div class="services-block">
-                <i class="bx bxl-figma"></i>
-                <span>Figma</span>
-                <p class="separator">A prototyping and interface designing tool </p>
-              </div>
-            </div><!-- End Skill item -->
-            <div class="swiper-slide">
-              <div class="services-block">
-                <i class="bx bxl-firebase"></i>
-                <span>Firebase</span>
-                <p class="separator">A set of backend cloud computing services and applications</p>
-              </div>
-            </div><!-- End Skill item -->
-            <div class="swiper-slide">
-              <div class="services-block">
-                <i class="bx bxl-html5"></i>
-                <span>HTML5</span>
-                <p class="separator">A markup language</p>
-              </div>
-            </div><!-- End Skill item -->
-            <div class="swiper-slide">
-              <div class="services-block">
-                <i class="bx bxl-javascript"></i>
-                <span>JavaScript</span>
-                <p class="separator">Programming language</p>
-              </div>
-            </div><!-- End Skill item -->
-            <div class="swiper-slide">
-              <div class="services-block">
-                <i class="bx bxl-gmail"></i>
-                <span>Material UI</span>
-                <p class="separator">Design language</p>
-              </div>
-            </div><!-- End Skill item -->
-            <div class="swiper-slide">
-              <div class="services-block">
-                <i class="bx bxl-react"></i>
-                <span>React JS</span>
-                <p class="separator">Frontend JavaScript library</p>
-              </div>
-            </div><!-- End Skill item -->
-            <div class="swiper-slide">
-              <div class="services-block">
-                <i class="bx bxl-react"></i>
-                <span>React Native</span>
-                <p class="separator">UI software framework</p>
-              </div>
-            </div><!-- End Skill item -->
-            <div class="swiper-slide">
-              <div class="services-block">
-                <i class="bx bxl-typescript"></i>
-                <span>TypeScript</span>
-                <p class="separator">Programming language</p>
-              </div>
-            </div><!-- End Skill item -->
-
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-        <div class="mt-0">
-          <li><a class="btn btn-defeault btn-send" href="./CVFile/OluseyiCV.pdf" download="OluseyiCV.pdf">Download
-              CV</a></li>
-
-        </div>
-      </div>
-
-    </div><!-- End Services Section -->
-
-    <!-- ======= Portfolio Section ======= -->
-    <div id="portfolio" class="paddsection">
-
-      <div class="container">
-        <div class="section-title text-center">
-          <h2>My Portfolio</h2>
-        </div>
-      </div>
-
-      <div class="container">
-
-        <div class="row">
-          <div class="col-lg-12 d-flex justify-content-center">
-            <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-app">App</li>
-              <li data-filter=".filter-card">UI Designs</li>
-              <li data-filter=".filter-web">Web</li>
+          <!-- Quick Links -->
+          <div>
+            <h3 class="text-cyan-900 font-semibold mb-4">Quick Links</h3>
+            <ul class="space-y-2 text-gray-600 text-sm">
+              <li>
+                <a href="#" class="hover:text-cyan-700 transition">Home</a>
+              </li>
+              <li>
+                <a href="#projects" class="hover:text-cyan-700 transition"
+                  >Projects</a
+                >
+              </li>
+              <li>
+                <a href="#skills" class="hover:text-cyan-700 transition"
+                  >Skills</a
+                >
+              </li>
+              <li>
+                <a href="#contact" class="hover:text-cyan-700 transition"
+                  >Contact</a
+                >
+              </li>
             </ul>
           </div>
-        </div>
 
-        <div class="row portfolio-container">
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <img src="assets/img/portfolio/moneygardemobile3.png" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>MoneyGarde Mobile</h4>
-              <a href="assets/img/portfolio/moneygardemobile3.png" data-gallery="portfolioGallery"
-                class="portfolio-lightbox preview-link" title="React Native, JavaScript, Material UI"><i
-                  class="bx bx-plus"></i></a>
-              <a href="src/app/portfolio-details-app.html" class="details-link" title="More Details"><i
-                  class="bx bx-link"></i></a>
-            </div>
+          <!-- Contact Info -->
+          <div>
+            <h3 class="text-cyan-900 font-semibold mb-4">Contact</h3>
+            <p class="text-gray-600 text-sm">
+              Email: oluseyimayotomiwa@gmail.com
+            </p>
+            <p class="text-gray-600 text-sm">Lagos, Nigeria</p>
           </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <img src="assets/img/portfolio/JetCityCover.png" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>JetCity</h4>
-              <a href="assets/img/portfolio/JetCityCover.png" data-gallery="portfolioGallery"
-                class="portfolio-lightbox preview-link" title="HTML5, CSS, JavaScript"><i class="bx bx-plus"></i></a>
-              <a href="src/web/portfolio-details-4.html" class="details-link" title="More Details"><i
-                  class="bx bx-link"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <img src="assets/img/portfolio/habitica.png" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Habitica</h4>
-              <a href="assets/img/portfolio/habitica.png" data-gallery="portfolioGallery"
-                class="portfolio-lightbox preview-link" title="React Native, JavaScript, Material UI, Firebase"><i
-                  class="bx bx-plus"></i></a>
-              <a href="src/app/portfolio-details-app-2.html" class="details-link" title="More Details"><i
-                  class="bx bx-link"></i></a>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <img src="assets/img/portfolio/foodapp.png" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Food App Design</h4>
-              <a href="assets/img/portfolio/foodapp.png" data-gallery="portfolioGallery"
-                class="portfolio-lightbox preview-link" title="Figma Design, Prototyping"><i class="bx bx-plus"></i></a>
-              <a href="src/uidesigns/portfolio-details-design.html" class="details-link" title="More Details"><i
-                  class="bx bx-link"></i></a>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <img src="assets/img/portfolio/orderease.png" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>OrderEase</h4>
-              <a href="assets/img/portfolio/orderease.png" data-gallery="portfolioGallery"
-                class="portfolio-lightbox preview-link" title="React, Firebase, CSS, TypeScript"><i
-                  class="bx bx-plus"></i></a>
-              <a href="src/web/portfolio-details-2.html" class="details-link" title="More Details"><i
-                  class="bx bx-link"></i></a>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <img src="assets/img/portfolio/Videohub.PNG" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Video Hub Design</h4>
-              <a href="assets/img/portfolio/Videohub.PNG" data-gallery="portfolioGallery"
-                class="portfolio-lightbox preview-link" title="Figma Design"><i class="bx bx-plus"></i></a>
-              <a href="src/uidesigns/portfolio-details-design-2.html" class="details-link" title="More Details"><i
-                  class="bx bx-link"></i></a>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <img src="assets/img/portfolio/jimis-place.png" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Jimi's Place</h4>
-              <a href="assets/img/portfolio/jimis-place.png" data-gallery="portfolioGallery"
-                class="portfolio-lightbox preview-link" title="HTML5, SCSS, JavaScript"><i class="bx bx-plus"></i></a>
-              <a href="src/web/portfolio-details-1.html" class="details-link" title="More Details"><i
-                  class="bx bx-link"></i></a>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <img src="assets/img/portfolio/moneygarde2.png" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>MoneyGarde</h4>
-              <a href="assets/img/portfolio/moneygarde2.png" data-gallery="portfolioGallery"
-                class="portfolio-lightbox preview-link" title="React, CSS, JavaScript"><i class="bx bx-plus"></i></a>
-              <a href="src/web/portfolio-details-3.html" class="details-link" title="More Details"><i
-                  class="bx bx-link"></i></a>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <img src="assets/img/portfolio/pps.png" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Perry's Palete</h4>
-              <a href="assets/img/portfolio/pps.png" data-gallery="portfolioGallery"
-                class="portfolio-lightbox preview-link" title="React, CSS, JavaScript, aos"><i
-                  class="bx bx-plus"></i></a>
-              <a href="src/web/portfolio-details-5.html" class="details-link" title="More Details"><i
-                  class="bx bx-link"></i></a>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <img src="assets/img/portfolio/TodoApp.png" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Todo App Design</h4>
-              <a href="assets/img/portfolio/TodoApp.png" data-gallery="portfolioGallery"
-                class="portfolio-lightbox preview-link" title="Figma Design"><i class="bx bx-plus"></i></a>
-              <a href="src/uidesigns/portfolio-details-design-3.html" class="details-link" title="More Details"><i
-                  class="bx bx-link"></i></a>
-            </div>
+          <!-- Newsletter -->
+          <div>
+            <h3 class="text-cyan-900 font-semibold mb-4">Stay Connected</h3>
+            <p class="text-gray-600 text-sm mb-3">
+              Subscribe for portfolio updates and news.
+            </p>
+            <form class="flex">
+              <input
+                type="email"
+                placeholder="Your email"
+                class="flex-grow border border-gray-300 rounded-l-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-700"
+              />
+              <button
+                type="submit"
+                class="bg-cyan-700 text-white px-4 py-2 rounded-r-lg hover:bg-blue-700 transition"
+              >
+                Subscribe
+              </button>
+            </form>
           </div>
         </div>
 
-      </div>
-
-    </div><!-- End Portfolio Section -->
-
-    <!-- ======= Contact Section ======= -->
-    <div id="contact" class="paddsection">
-      <div class="container">
-        <div class="contact-block1">
-          <div class="row">
-
-            <div class="col-lg-6">
-              <div class="contact-contact">
-
-                <h2 class="mb-30">GET IN TOUCH</h2>
-
-                <ul class="contact-details">
-                  <li><span>Lagos, Nigeria</span></li>
-                  <li><span>+234 9022195613</span></li>
-                  <li><span>oluseyimayotomiwa@outlook.com</span></li>
-                </ul>
-
-              </div>
-            </div>
-
-            <div class="col-lg-6">
-              <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-                <div class="row gy-3">
-
-                  <div class="col-lg-6">
-                    <div class="form-group contact-block1">
-                      <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-                    </div>
-                  </div>
-
-                  <div class="col-lg-6">
-                    <div class="form-group">
-                      <input type="email" class="form-control" name="email" id="email" placeholder="Your Email"
-                        required>
-                    </div>
-                  </div>
-
-                  <div class="col-lg-12">
-                    <div class="form-group">
-                      <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject"
-                        required>
-                    </div>
-                  </div>
-
-                  <div class="col-lg-12">
-                    <div class="form-group">
-                      <textarea class="form-control" name="message" placeholder="Message" required></textarea>
-                    </div>
-                  </div>
-
-                  <div class="col-lg-12">
-                    <div class="loading">Loading</div>
-                    <div class="error-message"></div>
-                    <div class="sent-message">Your message has been sent. Thank you!</div>
-                  </div>
-
-                  <div class="mt-0">
-                    <input type="submit" class="btn btn-defeault btn-send" value="Send message">
-                  </div>
-
-                </div>
-              </form>
-            </div>
-          </div>
+        <!-- Footer Bottom -->
+        <div class="border-t border-gray-200 pt-8 text-center">
+          <p class="text-gray-600 text-sm" id="copyright">
+            © ${new Date().getFullYear()} Oluseyi Mayotomiwa. All rights
+            reserved.
+          </p>
         </div>
       </div>
-    </div><!-- End Contact Section -->
+    </footer>
 
-  </main><!-- End #main -->
+    <script>
+      // Initialize AOS
+      AOS.init({
+        duration: 1000,
+        once: true,
+        offset: 100,
+      });
 
-  <!-- ======= Footer ======= -->
-  <div id="footer" class="text-center">
-    <div class="container">
-      <div class="socials-media text-center">
+      // Typing Animation
+      const titles = [
+        "Full-Stack Engineer",
+        "Web Developer",
+        "Mobile Developer",
+        "Software Engineer",
+      ];
+      let titleIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+      const typingElement = document.getElementById("typing-text");
+      const typingSpeed = 100;
+      const deletingSpeed = 50;
+      const pauseTime = 2000;
 
-        <ul class="list-unstyled">
-          <li><a href="https://github.com/Mayotomiwa"><i class="bi bi-github"></i></a></li>
-          <li><a href="https://linkedin.com/in/oluseyimayotomiwa"><i class="bi bi-linkedin"></i></a></li>
-        </ul>
+      function type() {
+        const currentTitle = titles[titleIndex];
 
-      </div>
+        if (isDeleting) {
+          typingElement.textContent = currentTitle.substring(0, charIndex - 1);
+          charIndex--;
+        } else {
+          typingElement.textContent = currentTitle.substring(0, charIndex + 1);
+          charIndex++;
+        }
 
-      <p>&copy; Copyrights. All rights reserved.</p>
+        if (!isDeleting && charIndex === currentTitle.length) {
+          setTimeout(() => {
+            isDeleting = true;
+          }, pauseTime);
+        } else if (isDeleting && charIndex === 0) {
+          isDeleting = false;
+          titleIndex = (titleIndex + 1) % titles.length;
+        }
 
-      <div class="credits">
-        Designed by: <a href=""><b><i>Oluseyi Mayotomiwa Immanuel</i></b></a>
-      </div>
+        const speed = isDeleting ? deletingSpeed : typingSpeed;
+        setTimeout(type, speed);
+      }
 
-    </div>
-  </div>
-  <!-- End Footer -->
+      // Start typing animation
+      type();
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-      class="bi bi-arrow-up-short"></i></a>
+      // Update copyright year
+      const currentYear = new Date().getFullYear();
+      document.getElementById(
+        "copyright"
+      ).textContent = `© ${currentYear} Oluseyi Mayotomiwa. All rights reserved.`;
+    </script>
+    <script>
+      document
+        .getElementById("contact-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
-
-</body>
-
+          emailjs.sendForm("service_41pvuz7", "template_tctnywb", this).then(
+            function () {
+              alert("Message sent successfully!");
+              e.target.reset();
+            },
+            function (error) {
+              alert("Failed to send message. Please try again.");
+              console.error(error);
+            }
+          );
+        });
+    </script>
+  </body>
 </html>
