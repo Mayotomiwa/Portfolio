@@ -20,6 +20,20 @@
       body {
         font-family: "Montserrat", sans-serif;
       }
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate-slideDown {
+        animation: slideDown 0.3s ease forwards;
+      }
+
       @keyframes float {
         0%,
         100% {
@@ -65,30 +79,9 @@
       }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-    <script>
-      (function () {
-        emailjs.init("8K-CvVZqlamXvUUQ0");
-      })();
-
-      document
-        .getElementById("contact-form")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
-
-          emailjs.sendForm("service_41pvuz7", "template_tctnywb", this).then(
-            function () {
-              alert("Message sent successfully!");
-              document.getElementById("contact-form").reset();
-            },
-            function (error) {
-              alert("Failed to send message. Please try again.");
-              console.error("EmailJS error:", error);
-            }
-          );
-        });
-    </script>
   </head>
   <body class="bg-gray-50">
+    <!-- Navigation -->
     <!-- Navigation -->
     <nav class="bg-white shadow-sm fixed w-full z-50" data-aos="fade-down">
       <div class="max-w-7xl mx-auto px-6 py-4">
@@ -100,17 +93,90 @@
               >
             </a>
           </div>
-          <div class="flex space-x-8">
-            <a href="#projects" class="text-gray-600 hover:text-gray-900"
+
+          <!-- Desktop Menu -->
+          <div class="hidden md:flex space-x-8">
+            <a
+              href="#projects"
+              class="text-gray-600 hover:text-gray-900 transition"
               >Projects</a
             >
-            <a href="#skills" class="text-gray-600 hover:text-gray-900"
+            <a
+              href="#skills"
+              class="text-gray-600 hover:text-gray-900 transition"
               >Skills</a
             >
-            <a href="#contact" class="text-gray-600 hover:text-gray-900"
+            <a
+              href="#contact"
+              class="text-gray-600 hover:text-gray-900 transition"
               >Contact</a
             >
           </div>
+
+          <!-- Mobile Menu Button -->
+          <button
+            id="mobile-menu-btn"
+            class="md:hidden text-gray-600 hover:text-gray-900 focus:outline-none"
+            aria-label="Toggle menu"
+          >
+            <svg
+              id="menu-icon"
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+            <svg
+              id="close-icon"
+              class="w-6 h-6 hidden"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div
+          id="mobile-menu"
+          class="hidden md:hidden absolute left-0 right-0 top-full bg-white border-t border-gray-200 px-6 py-2 space-y-1"
+        >
+          <a
+            href="#projects"
+            class="block text-gray-600 hover:text-cyan-900 hover:bg-gray-50 px-4 py-2 rounded-lg transition"
+            >Projects</a
+          >
+          <a
+            href="#skills"
+            class="block text-gray-600 hover:text-cyan-900 hover:bg-gray-50 px-4 py-2 rounded-lg transition"
+            >Skills</a
+          >
+          <a
+            href="#contact"
+            class="block text-gray-600 hover:text-cyan-900 hover:bg-gray-50 px-4 py-2 rounded-lg transition"
+            >Contact</a
+          >
+          <a
+            href="./CVFile/MayoResume.pdf"
+            download="OluseyiMayotomiwa'sCV.pdf"
+            class="block bg-cyan-700 text-white px-4 py-2 rounded-lg hover:bg-cyan-900 transition text-center mt-2"
+          >
+            Download Resume
+          </a>
         </div>
       </div>
     </nav>
@@ -1056,6 +1122,28 @@
             }
           );
         });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const menuIcon = document.getElementById("menu-icon");
+        const closeIcon = document.getElementById("close-icon");
+
+        mobileMenuBtn.addEventListener("click", () => {
+          mobileMenu.classList.toggle("hidden");
+          menuIcon.classList.toggle("hidden");
+          closeIcon.classList.toggle("hidden");
+
+          // Add slide-down animation when showing
+          if (!mobileMenu.classList.contains("hidden")) {
+            mobileMenu.classList.add("animate-slideDown");
+            setTimeout(() => {
+              mobileMenu.classList.remove("animate-slideDown");
+            }, 300); // Remove class after animation to allow re-trigger
+          }
+        });
+      });
     </script>
   </body>
 </html>
